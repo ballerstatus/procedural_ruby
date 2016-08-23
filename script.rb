@@ -16,20 +16,24 @@ def check_guess (guess, secret_number, num_guesses)
     puts "The secret number is HIGHER than #{guess}."
   end
 end
-# main script (game)
-secret_number = rand(1..10)
-puts "Thanks for playing hi/lo"
-puts "You have three num_guesses to find the number between 1 and 10"
-num_guesses = 0
-while num_guesses < 3
-  puts "Guess ##{num_guesses+1}:"
-  print "> "
-  guess = gets.chomp.to_i
-  num_guesses+=1
-  puts "Your guess was #{guess}!"
-  check_guess(guess, secret_number, num_guesses)
+# main method
+def play
+  secret_number = rand(1..10)
+  puts "Thanks for playing hi/lo"
+  puts "You have three num_guesses to find the number between 1 and 10"
+  num_guesses = 0
+  while num_guesses < 3
+    puts "Guess ##{num_guesses+1}:"
+    print "> "
+    guess = gets.chomp.to_i
+    num_guesses+=1
+    puts "Your guess was #{guess}!"
+    check_guess(guess, secret_number, num_guesses)
+  end
 end
-  
+
+play
+
 =begin
 # third guess
 puts "Make your LAST guess:"
